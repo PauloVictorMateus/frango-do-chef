@@ -9,7 +9,7 @@ interface NotaFiscalProps {
   onGenerate: (data: NotaFiscalData) => void;
 }
 
-const NotaFiscal: React.FC<NotaFiscalProps> = ({ clients, notaFiscalData, onGenerate }) => {
+const NotaFiscal: React.FC<NotaFiscalProps> = ({ clients }) => {
   // Inicializa o estado com dados do localStorage, se existirem
   const [pedidos, setPedidos] = useState<NotaFiscalData[]>(() => {
     const savedPedidos = localStorage.getItem('pedidos');
@@ -74,7 +74,7 @@ const NotaFiscal: React.FC<NotaFiscalProps> = ({ clients, notaFiscalData, onGene
     let yPosition = 50;
     let totalGeral = 0;
 
-    pedidos.forEach((pedido, index) => {
+    pedidos.forEach((pedido) => {
       pdf.setFontSize(12);
       pdf.text(`Cliente: ${pedido.clientName}`, 20, yPosition);
       pdf.text(`Peso: ${pedido.weight} kg`, 20, yPosition + 7);
