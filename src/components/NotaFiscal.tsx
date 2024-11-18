@@ -94,6 +94,11 @@ const NotaFiscal: React.FC<NotaFiscalProps> = ({ clients }) => {
     pdf.save(`Frango do Chefe - Pedidos ${new Date().toLocaleString("pt-BR")}.pdf`);
   };
 
+  // Add this new function to remove a specific order
+  const handleRemovePedido = (index: number) => {
+    setPedidos(pedidos.filter((_, i) => i !== index));
+  };
+
   return (
     <div className="nota-fiscal">
       <h2>Gerar Nota Fiscal</h2>
@@ -122,6 +127,12 @@ const NotaFiscal: React.FC<NotaFiscalProps> = ({ clients }) => {
               <p>Peso: {pedido.weight} kg</p>
               <p>Valor por quilo: R$ {pedido.pricePerKg.toFixed(2)}</p>
               <p>Subtotal: R$ {pedido.total.toFixed(2)}</p>
+              <button 
+                onClick={() => handleRemovePedido(index)}
+                className="remove-button"
+              >
+                Remover Pedido
+              </button>
             </div>
           ))}
           <p className="total-geral">

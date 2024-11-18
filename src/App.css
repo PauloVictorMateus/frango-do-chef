@@ -1,7 +1,7 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+box-sizing: border-box;
 }
 
 /* Geral */
@@ -199,4 +199,18 @@ button:hover {
 
 .clear-button:hover {
   background-color: #c0392b;
+}
+
+.remove-button {
+  background-color: #ff4444;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 5px;
+}
+
+.remove-button:hover {
+  background-color: #cc0000;
 }
